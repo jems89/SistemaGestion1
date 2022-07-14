@@ -11,7 +11,7 @@ private:
 public:
     Producto();
     void cargar();
-    void mostrar();
+    void mostrar(int nu);
 	bool grabarEnDisco();
 	bool leerDeDisco(int pos);
     std::string getNombre();
@@ -37,5 +37,13 @@ public:
 
     bool getEstado();
     void setEstado(bool estado);
+
+    int BuscarProducto(int CodigoBuscar); /// devuelve -1 si no encontro el producto
+
+    int ContarRegistross();
+    int ContarRegistros( Producto reg);
+
+    void ListarTodosLosProductos(); 
+    
 
 };

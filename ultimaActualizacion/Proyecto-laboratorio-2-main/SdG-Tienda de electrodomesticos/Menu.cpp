@@ -443,6 +443,8 @@ void Menu::menuProducto() {
         case 3: //empleado.eliminarEmpleado();
             break;
         case 4: 
+            producto.ListarTodosLosProductos();
+            
             break;
         default:
             if (opcion != 0) {

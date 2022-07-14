@@ -188,20 +188,21 @@ void Empleado::mostrar() {
 }
 
 bool Empleado::grabarEnDisco() {
-    FILE* p = NULL;
+    FILE* p;
+	bool guardo = false;
     p = fopen("empleados.dat", "ab");
     if (p == NULL)
     {
-        std::cout << "Error al guardar.\n";
+        std::cout << "Error al guardar";
         system("pause");
-        return 0;
+        return false;
     }
-    fwrite(this, sizeof(Empleado), 1, p);
+    guardo=fwrite(this, sizeof(Empleado), 1, p);
     fclose(p);
-    return 1;
+    return guardo;
 }
 bool Empleado::leerDeDisco(int pos) {
-    FILE* p = NULL;
+    FILE* p ;
 
 	bool ok=false;
     p = fopen("empleados.dat", "rb");
@@ -444,9 +445,12 @@ bool Empleado::modificarEnDisco(int pos) {
 }
 
 int Empleado::buscarRegistro(int id) {
+
 	for (int i = 0; i < contRegistros(); i++)
 	{
-		if (id == ID) return i;
+		if (id == ID)
+			
+			return i;
 	}
 	return -1;
 }

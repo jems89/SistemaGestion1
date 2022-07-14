@@ -270,6 +270,7 @@ void Venta::cargar() {
     system("cls");
     rlutil::locate(43, 16);
     if (grabarEnDisco()) std::cout << "Venta cargada con exito." << std::endl;
+    rlutil::locate(43, 17);
     system("pause");
 }
 
@@ -583,17 +584,30 @@ void Venta::eliminarVenta() {
 }
 
 void Venta::listarVenta() {
-    int opcion, n, pos;
+    int opcion, n;
     bool bandera = false;
-    do
-    {
-        pos = 0;
+    int pos = 0;
+
+    rlutil::setColor(rlutil::WHITE);
+    rlutil::setBackgroundColor(rlutil::BLACK);
+    do {
+        system("cls");
+        Menu obj;
+        rlutil::setColor(rlutil::WHITE);
+        rlutil::setBackgroundColor(rlutil::BLACK);
+        obj.Menurectangulo(37, 8, 49, 14, "");
         std::cout << "1-Listar todas las ventas";
+        obj.Menurectangulo(37, 12, 49, 14, "");
         std::cout << "2-Listar una venta";
+        obj.Menurectangulo(37, 16, 49, 14, "");
         std::cout << "-------------------" << std::endl;
+        obj.Menurectangulo(37, 20, 49, 14, "");
         std::cout << "------------------" << std::endl;
+        obj.Menurectangulo(37, 24, 49, 14, "");
         std::cout << "0-Volver" << std::endl << std::endl;
+        obj.Menurectangulo(37, 28, 49, 14, "");
         std::cout << "Ingrese una opción: ";
+        obj.Menurectangulo(47, 28, 49, 14, "");
         std::cin >> opcion;
         rlutil::cls();
         switch (opcion)
@@ -613,6 +627,7 @@ void Venta::listarVenta() {
                 if (n == numeroVenta)
                 {
                     mostrar();
+                   
                     bandera = true;
                 }
             }
